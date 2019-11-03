@@ -19,7 +19,6 @@ body {
 }
 
 html {
-    /* background-color: #802f2f; */
     background-color: var(--main-bg-color);
 }
 
@@ -56,11 +55,28 @@ html {
 #launchIcons {
     text-align: center;
     float: left;
-    width: 30%;
-    height: 504px;
+    width: 350px;
+    height: 500px;
 }
 
-.td {
-    width: 30%;
-    height: 30%;
+tbody {
+    margin: 0px;
+}
+
+tr {
+    width: 33.3333%;
+    height: width;
+}
+
+td {
+    width: 33.3333%;
+    height: 33.3333%;
+}
+
+td > img {
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
