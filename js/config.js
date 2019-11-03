@@ -17,6 +17,7 @@ window.onload = function() {
     runClock();
     var myVar = setInterval(runClock, 1000);
     updateLogoLinks();
+<<<<<<< HEAD
     loadHeavyElems();
 }
 
@@ -37,6 +38,10 @@ function loadHeavyElems() {
     googleCalendar.frameborder="0"
     googleCalendar.scrolling="no"
 }
+=======
+}
+
+>>>>>>> 773240e8a438f6d0da45ab8cc05cafd5b249eefd
 
 function runClock() {
     let today = new Date();
