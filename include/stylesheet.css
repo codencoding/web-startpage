@@ -19,7 +19,6 @@ body {
 }
 
 html {
-    /* background-color: #802f2f; */
     background-color: var(--main-bg-color);
 }
 
@@ -30,6 +29,10 @@ html {
     height: 126px;
     min-width: 474px;
     /* margin-bottom: 10px; */
+}
+
+#clockDate {
+    min-width: 657px;
 }
 
 #clockTime {
@@ -56,11 +59,50 @@ html {
 #launchIcons {
     text-align: center;
     float: left;
-    width: 30%;
-    height: 504px;
+    width: 350px;
+    height: 500px;
 }
 
-.td {
-    width: 30%;
-    height: 30%;
+#bodyContainer {
+    min-width: 1024px;
+}
+
+tbody {
+    margin: 0px;
+}
+
+tr {
+    width: 33.3333%;
+    height: width;
+}
+
+td {
+    width: 110px;
+    height: 110px;
+    margin: 5px;
+}
+
+td > a > img {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
+
+.grow {
+    transition: all .2s ease-in-out;
+}
+.grow:hover {
+    transform: scale(1.1);
+}
+
+.activeIcon {
+    border-radius: 23px;
+}
+
+.inactiveIcon {
+    display: none;
 }
