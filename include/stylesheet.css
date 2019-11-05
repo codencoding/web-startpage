@@ -106,3 +106,12 @@ td > a > img {
 .inactiveIcon {
     display: none;
 }
+
+#mediaHeader {
+    background-color: white;
+    align-content: center;
+    text-align: center;
+    width: 350px;
+    height: 100%;
+    float: left;
+}
