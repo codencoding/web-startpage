@@ -10,6 +10,7 @@ var clockDate;
 var clockTime;
 var iconElems;
 var enableSeconds = false;
+var isOnline = navigator.onLine;
 
 // window.onload = function () {
 clockDate = document.getElementById("clockDate");
@@ -19,8 +20,11 @@ updateDate();
 runClock();
 var myVar = setInterval(runClock, 1000);
 updateLogoLinks();
-loadHeavyElems();
+if(isOnline){
+    loadHeavyElems();
+}
 // }
+
 
 function loadHeavyElems() {
     let discordWidget = document.getElementById("discordWidget");
