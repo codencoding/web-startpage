@@ -12,6 +12,7 @@ var iconElems;
 var enableSeconds = false;
 var isOnline = navigator.onLine;
 var searchBar = document.getElementById("searchBar");
+searchBar.value = '';
 
 // window.onload = function () {
 clockDate = document.getElementById("clockDate");
