@@ -115,3 +115,7 @@ td > a > img {
     height: 100%;
     float: left;
 }
+
+#searchBar {
+    float: center;
+}

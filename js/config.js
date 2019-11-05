@@ -11,6 +11,7 @@ var clockTime;
 var iconElems;
 var enableSeconds = false;
 var isOnline = navigator.onLine;
+var searchBar = document.getElementById("searchBar");
 
 // window.onload = function () {
 clockDate = document.getElementById("clockDate");
@@ -135,3 +136,17 @@ function updateLogoLinks() {
         }
     }
 }
+
+function googleSearch(searchInput) {
+    window.location.href = "https://www.google.com/search?q=" + searchInput;
+}
+
+searchBar.addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      googleSearch(searchBar.value);
+    }
+  }); 
