@@ -14,7 +14,6 @@ var isOnline = navigator.onLine;
 var searchBar = document.getElementById("searchBar");
 searchBar.value = '';
 
-// window.onload = function () {
 clockDate = document.getElementById("clockDate");
 clockTime = document.getElementById("clockTime");
 iconElems = document.getElementsByClassName("iconRow");
@@ -25,7 +24,6 @@ updateLogoLinks();
 if(isOnline){
     loadHeavyElems();
 }
-// }
 
 
 function loadHeavyElems() {
