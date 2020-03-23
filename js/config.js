@@ -34,7 +34,6 @@ function loadHeavyElems() {
     tempDiscordWidget.src = "https://discordapp.com/widget?id=106615501169377280&theme=dark"
     tempDiscordWidget.width = "350"
     tempDiscordWidget.height = "500"
-    tempDiscordWidget.allowtransparency = "true"
     tempDiscordWidget.frameBorder = "0"
     discordWidget.appendChild(tempDiscordWidget);
 
