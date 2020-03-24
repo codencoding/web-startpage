@@ -1,0 +1,6 @@
+data = '[{\
+         "site_name":["facebook", "github", "youtube", "messenger", "gmail", "piazza", "netflix", "canvas", "tritoned"],\
+         "url":["facebook.com", "github.com", "youtube.com", "facebook.com/messenger/", "gmail.com", "piazza.com", "netflix.com", "canvas.com", "tritioned.ucsd.edu"],\
+         "img_name":["facebook.png", "github.png", "youtube.png", "messenger.png", "gmail.png", "piazza.png", "netflix.png", "canvas.png", "tritoned.png"],\
+         "position":[0, 1, 2, 3, 4, 5, 6, 7, 8]\
+         }]'

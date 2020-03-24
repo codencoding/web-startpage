@@ -124,6 +124,30 @@ td > a > img {
     display: none;
 }
 
+.activeIcon .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 5px 5px;
+    border: solid white 1px;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: relative;
+    bottom: 110%;
+    left: 50%; 
+    margin-left: -105px;
+    z-index: 1;
+}
+
+.activeIcon:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+
 #mediaHeader {
     /* background-color: slategrey; */
     align-content: center;

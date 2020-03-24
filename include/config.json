@@ -1,0 +1,6 @@
+cfg = '[{\
+    "LAUNCH_ICONS":{\
+        "ROWS":4,\
+        "COLUMNS":3\
+    }\
+}]'

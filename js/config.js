@@ -1,29 +1,14 @@
 // @ts-check
-
 var today = new Date();
 const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];
 const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 var date;
-var clockDate;
-var clockTime;
-var iconElems;
 var enableSeconds = false;
 var isOnline = navigator.onLine;
-var searchBar = document.getElementById("searchBar");
-searchBar.value = '';
-
-clockDate = document.getElementById("clockDate");
-clockTime = document.getElementById("clockTime");
-iconElems = document.getElementsByClassName("iconRow");
-updateDate();
-runClock();
-var myVar = setInterval(runClock, 1000);
-updateLogoLinks();
-if(isOnline){
-    loadHeavyElems();
-}
+var icon_data = JSON.parse(data)[0];
+var cfg = JSON.parse(cfg)[0];
 
 
 function loadHeavyElems() {
@@ -102,49 +87,56 @@ function updateDate() {
     clockDate.innerHTML = date;
 }
 
-function updateLogoLinks() {
-    let linkNode;
-    let imgNode;
-    let cellValue;
-    let siteName;
-    let siteDomain;
+function create_icons_table(parent_div, rows, cols) {
+    let table = document.createElement("table");
+    parent_div.appendChild(table);
 
-    for (let row of iconElems) {
-        for (let elem of row.cells) {
-            cellValue = elem.innerHTML;
-            if (cellValue == '') {
-                cellValue = "placeHolder.com";
-                elem.className = "inactiveIcon";
-            } else {
-                elem.className = "activeIcon";
-            }
-            siteName = cellValue.split('.')[0];
-            siteDomain = cellValue.split('.').slice(1);
-
-            linkNode = document.createElement("a");
-            imgNode = document.createElement("img");
-            imgNode.className = "grow";
-
-            linkNode.href = "https://" + siteName + "." + siteDomain.join('.');
-            imgNode.src = "include/icons/" + siteName + ".png"
-
-            elem.innerHTML = '';
-            elem.appendChild(linkNode);
-            linkNode.appendChild(imgNode);
+    let icon_elems = {}
+    let curr_index;
+    let active_row;
+    let active_icon;
+    for (let row = 0; row < rows; row++) {
+        if((row * cols) >= icon_data["position"].length) {
+            break;
         }
+        active_row = table.insertRow(row);
+        active_row.className = "iconRow";
+        for (let col = 0; col < cols; col++) {
+            if(curr_index >= icon_data["position"].length) {
+                break;
+            }
+
+            active_icon = active_row.insertCell(col);
+            active_icon.className = "activeIcon";
+
+            curr_index = col + cols * row
+            icon_elems[curr_index] = active_icon;
+        }
+    }
+
+    let link_elem;
+    let img_elem;
+    for (let index = 0; index < icon_data["position"].length; index++) {
+        const curr_pos = icon_data["position"][index];
+        active_icon = icon_elems[curr_pos]
+
+        link_elem = document.createElement("a");
+        link_elem.href = icon_data["url"][index];
+        active_icon.appendChild(link_elem);
+        
+        img_elem = document.createElement("img");
+        img_elem.className = "grow";
+        img_elem.src = "include/imgs/" + icon_data["img_name"][index];
+        link_elem.appendChild(img_elem);
+
+        // Create tooltip
+        let tooltip = document.createElement("span");
+        tooltip.innerHTML = icon_data["site_name"][index];
+        tooltip.className = "tooltiptext";
+        active_icon.appendChild(tooltip);
     }
 }
 
 function googleSearch(searchInput) {
     window.location.href = "https://www.google.com/search?q=" + searchInput;
 }
-
-searchBar.addEventListener("keyup", function(event) {
-    // Number 13 is the "Enter" key on the keyboard
-    if (event.keyCode === 13) {
-      // Cancel the default action, if needed
-      event.preventDefault();
-      // Trigger the button element with a click
-      googleSearch(searchBar.value);
-    }
-  }); 
