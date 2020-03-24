@@ -121,7 +121,7 @@ function create_icons_table(parent_div, rows, cols) {
         active_icon = icon_elems[curr_pos]
 
         link_elem = document.createElement("a");
-        link_elem.href = icon_data["url"][index];
+        link_elem.href = "https://" + icon_data["url"][index];
         active_icon.appendChild(link_elem);
         
         img_elem = document.createElement("img");
