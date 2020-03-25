@@ -1,9 +1,12 @@
 :root {
     --main-bg-color: #202225;
+    /* --main-bg-color: #e9e9e9; */
     --primary-color: #29395c;
-    /* --primary-color: #445180; */
+    /* --primary-color: #e9e9e9; */
     --secondary-color: wheat;
     --tertiary-color: #181d2e;
+    --text-color: white;
+    /* --text-color: #000000; */
     --min-body-width: 1080px;
   }
 
@@ -37,10 +40,12 @@ html {
 
 #clockDate {
     min-width: 657px;
+    color: var(--text-color);
 }
 
 #clockTime {
     font-size: 37px;
+    color: var(--text-color);
 }
 
 #discordWidget {
@@ -128,10 +133,10 @@ td > a > img {
     visibility: hidden;
     width: 120px;
     background-color: var(--primary-color);
-    color: #fff;
+    color: var(--text-color);
     text-align: center;
     padding: 5px 5px;
-    border: solid white 1px;
+    border: solid var(--secondary-color) 1px;
     border-radius: 6px;
 
     /* Position the tooltip text - see examples below! */
@@ -159,5 +164,19 @@ td > a > img {
 
 #searchBar {
     float: center;
+    padding: 3px;
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+    border-width: 1px;
     border-radius: 5px;
+}
+
+#themePicker {
+    position: absolute;
+    right: 0px;
+    width: 75px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
 }

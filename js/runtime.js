@@ -10,7 +10,7 @@ updateDate();
 runClock();
 var myVar = setInterval(runClock, 1000);
 
-create_icons_table(launch_icons_div, cfg["LAUNCH_ICONS"]["ROWS"], cfg["LAUNCH_ICONS"]["COLUMNS"])
+create_icons_table(launch_icons_div, icon_cfg["ROWS"], icon_cfg["COLUMNS"])
 
 if(isOnline){
     loadHeavyElems();
