@@ -12,7 +12,7 @@ cfg = '[{\
         "LIGHT":{"--main-bg-color": "#e9e9e9",\
             "--primary-color": "#e9e9e9",\
             "--secondary-color": "#862b2b",\
-            "--tertiary-color": "#ffffff",\
+            "--tertiary-color": "#e9e9e9",\
             "--text-color": "#000000"}\
     }\
 }]'

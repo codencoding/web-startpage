@@ -9,7 +9,6 @@ var enableSeconds = false;
 var isOnline = navigator.onLine;
 var icon_data = JSON.parse(data)[0];
 var cfg = JSON.parse(cfg)[0];
-console.log(cfg);
 var icon_cfg = cfg["LAUNCH_ICONS"]
 var theme_cfg = cfg["THEMES"]
 
@@ -130,6 +129,7 @@ function create_icons_table(parent_div, rows, cols) {
         img_elem = document.createElement("img");
         img_elem.className = "grow";
         img_elem.src = "include/imgs/" + icon_data["img_name"][index];
+        img_elem.alt = icon_data["site_name"][index]
         link_elem.appendChild(img_elem);
 
         // Create tooltip
@@ -150,10 +150,7 @@ function changeTheme() {
     let selected_theme = themePicker[selected_index].value.toUpperCase();
     let root = document.documentElement;
 
-    console.log(selected_theme);
-    console.log(theme_cfg[selected_theme]);
     for (const key in theme_cfg[selected_theme]) {
-        console.log(key);
         if (theme_cfg[selected_theme].hasOwnProperty(key)) {
             const element = theme_cfg[selected_theme][key];
             root.style.setProperty(key, element);
