@@ -32,6 +32,7 @@ html {
 #dateHeader {
     background-color: var(--primary-color);
     text-align: center;
+    height: 140px;
     min-width: 670px;
 }
 
@@ -147,6 +148,16 @@ td > a > img {
 
 .activeIcon:hover .tooltiptext {
     visibility: visible;
+}
+
+#searchBar {
+    float: center;
+    padding: 3px;
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+    border-width: 1px;
+    border-radius: 5px;
+    margin-bottom: 5px;
 }
 
 #themePicker {
