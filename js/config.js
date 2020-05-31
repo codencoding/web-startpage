@@ -141,7 +141,7 @@ function create_icons_table(parent_div, rows, cols) {
 }
 
 function googleSearch(searchInput) {
-    window.location.href = "https://www.google.com/search?q=" + searchInput;
+    window.location.href = "https://duckduckgo.com/search?q=" + searchInput;
 }
 
 function changeTheme() {
