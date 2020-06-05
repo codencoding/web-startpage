@@ -20,7 +20,7 @@ searchBar.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
       if (document.activeElement == searchBar) {
         // Cancel the default action, if needed
-        event.preventDefault();
+        // event.preventDefault();
         // Trigger the button element with a click
         duckduckgoSearch(searchBar.value);
       }
