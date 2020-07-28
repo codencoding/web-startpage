@@ -1,6 +1,6 @@
 data = '[{\
-         "site_name":["facebook", "github", "youtube", "messenger", "gmail", "piazza", "netflix", "canvas", "tritoned", "gradescope", "google drive"],\
-         "url":["facebook.com", "github.com", "youtube.com", "facebook.com/messages/", "gmail.com", "piazza.com", "netflix.com", "canvas.ucsd.edu", "tritoned.ucsd.edu", "gradescope.com", "drive.google.com"],\
-         "img_name":["facebook.png", "github.png", "youtube.png", "messenger.png", "gmail.png", "piazza.png", "netflix.png", "canvas.png", "tritoned.png", "gradescope.png", "google_drive.png"],\
-         "position":[10, 0, 2, 3, 7, 8, 6, 4, 9, 5, 1]\
+         "site_name":["facebook", "github", "youtube", "messenger", "gmail", "piazza", "netflix", "canvas", "tritoned", "gradescope", "google drive", "outlook"],\
+         "url":["facebook.com", "github.com", "youtube.com", "facebook.com/messages/", "gmail.com", "piazza.com", "netflix.com", "canvas.ucsd.edu", "tritoned.ucsd.edu", "gradescope.com", "drive.google.com", "outlook.office.com"],\
+         "img_name":["facebook.png", "github.png", "youtube.png", "messenger.png", "gmail.png", "piazza.png", "netflix.png", "canvas.png", "tritoned.png", "gradescope.png", "google_drive.png", "outlook.png"],\
+         "position":[10, 0, 2, 3, 7, 8, 6, 11, 9, 5, 1, 4]\
          }]'
