@@ -7,7 +7,7 @@ const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frida
 var date;
 var enableSeconds = false;
 var isOnline = navigator.onLine;
-var icon_data = JSON.parse(data)[0];
+var icon_data = JSON.parse(data);
 var cfg = JSON.parse(cfg)[0];
 var icon_cfg = cfg["LAUNCH_ICONS"]
 var theme_cfg = cfg["THEMES"]
@@ -98,13 +98,13 @@ function create_icons_table(parent_div, rows, cols) {
     let active_row;
     let active_icon;
     for (let row = 0; row < rows; row++) {
-        if((row * cols) >= icon_data["position"].length) {
+        if((row * cols) >= icon_data.length) {
             break;
         }
         active_row = table.insertRow(row);
         active_row.className = "iconRow";
         for (let col = 0; col < cols; col++) {
-            if(curr_index >= icon_data["position"].length) {
+            if(curr_index >= icon_data.length) {
                 break;
             }
 
@@ -118,23 +118,23 @@ function create_icons_table(parent_div, rows, cols) {
 
     let link_elem;
     let img_elem;
-    for (let index = 0; index < icon_data["position"].length; index++) {
-        const curr_pos = icon_data["position"][index];
+    for (let index = 0; index < icon_data.length; index++) {
+        const curr_pos = icon_data[index]["position"];
         active_icon = icon_elems[curr_pos]
 
         link_elem = document.createElement("a");
-        link_elem.href = "https://" + icon_data["url"][index];
+        link_elem.href = "https://" + icon_data[index]["url"];
         active_icon.appendChild(link_elem);
         
         img_elem = document.createElement("img");
         img_elem.className = "grow";
-        img_elem.src = "include/imgs/" + icon_data["img_name"][index];
-        img_elem.alt = icon_data["site_name"][index]
+        img_elem.src = "include/imgs/" + icon_data[index]["img_name"];
+        img_elem.alt = icon_data[index]["site_name"]
         link_elem.appendChild(img_elem);
 
         // Create tooltip
         let tooltip = document.createElement("span");
-        tooltip.innerHTML = icon_data["site_name"][index];
+        tooltip.innerHTML = icon_data[index]["site_name"];
         tooltip.className = "tooltiptext";
         active_icon.appendChild(tooltip);
     }

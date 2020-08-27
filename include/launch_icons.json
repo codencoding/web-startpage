@@ -1,6 +1,74 @@
-data = '[{\
-         "site_name":["facebook", "github", "youtube", "messenger", "gmail", "piazza", "netflix", "canvas", "tritoned", "gradescope", "google drive"],\
-         "url":["facebook.com", "github.com", "youtube.com", "facebook.com/messages/", "gmail.com", "piazza.com", "netflix.com", "canvas.ucsd.edu", "tritoned.ucsd.edu", "gradescope.com", "drive.google.com"],\
-         "img_name":["facebook.png", "github.png", "youtube.png", "messenger.png", "gmail.png", "piazza.png", "netflix.png", "canvas.png", "tritoned.png", "gradescope.png", "google_drive.png"],\
-         "position":[10, 0, 2, 3, 7, 8, 6, 4, 9, 5, 1]\
-         }]'
+data = '[\
+            {\
+                "site_name":"facebook",\
+                "url":"facebook.com",\
+                "img_name":"facebook.png",\
+                "position":10\
+            },\
+            {\
+                "site_name":"github",\
+                "url":"github.com",\
+                "img_name":"github.png",\
+                "position":0\
+            },\
+            {\
+                "site_name":"youtube",\
+                "url":"youtube.com",\
+                "img_name":"youtube.png",\
+                "position":2\
+            },\
+            {\
+                "site_name":"messenger",\
+                "url":"facebook.com/messages/",\
+                "img_name":"messenger.png",\
+                "position":3\
+            },\
+            {\
+                "site_name":"gmail",\
+                "url":"gmail.com",\
+                "img_name":"gmail.png",\
+                "position":7\
+            },\
+            {\
+                "site_name":"piazza",\
+                "url":"piazza.com",\
+                "img_name":"piazza.png",\
+                "position":8\
+            },\
+            {\
+                "site_name":"netflix",\
+                "url":"netflix.com",\
+                "img_name":"netflix.png",\
+                "position":6\
+            },\
+            {\
+                "site_name":"canvas",\
+                "url":"canvas.ucsd.edu",\
+                "img_name":"canvas.png",\
+                "position":11\
+            },\
+            {\
+                "site_name":"tritoned",\
+                "url":"tritoned.ucsd.edu",\
+                "img_name":"tritoned.png",\
+                "position":9\
+            },\
+            {\
+                "site_name":"gradescope",\
+                "url":"gradescope.com",\
+                "img_name":"gradescope.png",\
+                "position":5\
+            },\
+            {\
+                "site_name":"google drive",\
+                "url":"drive.google.com",\
+                "img_name":"google_drive.png",\
+                "position":1\
+            },\
+            {\
+                "site_name":"outlook",\
+                "url":"outlook.office.com",\
+                "img_name":"outlook.png",\
+                "position":4\
+            }\
+        ]'
