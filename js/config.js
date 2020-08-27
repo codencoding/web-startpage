@@ -140,6 +140,18 @@ function create_icons_table(parent_div, rows, cols) {
     }
 }
 
+function checkSearch(searchInput) {
+    if (searchInput.includes('.') && !searchInput.includes(' ')) {
+        if (searchInput.includes('http')) {
+            window.location.href = searchInput;
+        } else {
+            window.location.href = "https://" + searchInput;
+        }
+    } else {
+        duckduckgoSearch(searchInput);
+    }
+}
+
 function googleSearch(searchInput) {
     window.location.href = "https://www.google.com/search?q=" + searchInput;
 }

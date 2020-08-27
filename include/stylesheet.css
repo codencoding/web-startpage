@@ -155,7 +155,7 @@ td > a > img {
     padding: 3px;
     background-color: var(--main-bg-color);
     color: var(--text-color);
-    border-width: 1px;
+    border-width: 0px;
     border-radius: 5px;
     margin-bottom: 5px;
 }

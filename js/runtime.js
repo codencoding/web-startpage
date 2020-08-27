@@ -22,7 +22,7 @@ searchBar.addEventListener("keyup", function(event) {
         // Cancel the default action, if needed
         // event.preventDefault();
         // Trigger the button element with a click
-        duckduckgoSearch(searchBar.value);
+        checkSearch(searchBar.value);
       }
     }
   }); 
