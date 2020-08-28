@@ -4,7 +4,8 @@ A web launch-page that contains various useful embedded information and applicat
 TODO List:
 - Add quick-notes section syncing to a local notes file.
 - Add theme picker.
-    - Use cookies to implement background var names.
+    - ~Use cookies to implement background var names.~
+    - Add sidebar to adjust theme colors on the fly.
 - Add way to add or remove launch icons.
 - Add way to rearrange launch icons.
     - https://www.w3schools.com/html/html5_draganddrop.asp
