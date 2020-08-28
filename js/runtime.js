@@ -2,8 +2,20 @@ var clockDate = document.getElementById("clockDate");
 var clockTime = document.getElementById("clockTime");
 var iconElems = document.getElementsByClassName("iconRow");
 var launch_icons_div = document.getElementById("launchIcons");
+let themePicker = document.getElementById("themePicker");
 var searchBar = document.getElementById("searchBar");
 searchBar.value = '';
+
+var cookie_raw = document.cookie.split(';');
+var cookie = {};
+for (var i in cookie_raw) {
+  let var_pair = cookie_raw[i].trim().split("=");
+  cookie[var_pair[0]] = var_pair[1]
+}
+
+if ("theme" in cookie) {
+  setTheme(cookie["theme"], cookie["theme_index"]);
+}
 
 updateDate();
 runClock();
@@ -25,4 +37,4 @@ searchBar.addEventListener("keyup", function(event) {
         checkSearch(searchBar.value);
       }
     }
-  }); 
+}); 

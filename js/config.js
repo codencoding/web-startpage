@@ -161,14 +161,23 @@ function duckduckgoSearch(searchInput) {
 }
 
 function changeTheme() {
-    let themePicker = document.getElementById("themePicker");
     let selected_index = themePicker.options.selectedIndex;
     let selected_theme = themePicker[selected_index].value.toUpperCase();
-    let root = document.documentElement;
+    
+    setTheme(selected_theme, selected_index);
+}
 
-    for (const key in theme_cfg[selected_theme]) {
-        if (theme_cfg[selected_theme].hasOwnProperty(key)) {
-            const element = theme_cfg[selected_theme][key];
+function setTheme(theme, theme_index) {
+    let root = document.documentElement;
+        
+    document.cookie = "theme=" + theme + ';';
+    document.cookie = "theme_index=" + theme_index + ';';
+
+    themePicker.options.selectedIndex = theme_index;
+
+    for (const key in theme_cfg[theme]) {
+        if (theme_cfg[theme].hasOwnProperty(key)) {
+            const element = theme_cfg[theme][key];
             root.style.setProperty(key, element);
         }
     }
