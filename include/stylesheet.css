@@ -13,6 +13,8 @@
 
 * {
     font-family: 'Quicksand', sans-serif;
+    padding: 0px;
+    margin: 0px;
 }
 
 h1{
@@ -27,18 +29,20 @@ body {
 
 html {
     background-color: var(--main-bg-color);
+    min-width: 1100px;
 }
 
 #dateHeader {
     background-color: var(--primary-color);
     text-align: center;
-    height: 140px;
+    /* height: 220px; */
     min-width: 670px;
 }
 
 #clockDate {
     min-width: 657px;
     color: var(--text-color);
+    margin-bottom: 5px;
 }
 
 #clockTime {
@@ -168,4 +172,22 @@ td > a > img {
     border-radius: 5px;
     background-color: var(--main-bg-color);
     color: var(--text-color);
+}
+
+#weather {
+    position: absolute;
+    left: 0px;
+    /* margin: 10px; */
+    margin-left: 20px;
+    /* font-size: 35px; */
+    color: var(--text-color);
+    /* float: left; */
+    text-align: left;
+    width: 450px;
+}
+
+#weather p {
+    font-size: 20px;
+    max-height: 133px;
+    width: 450px;
 }

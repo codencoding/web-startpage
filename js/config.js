@@ -1,5 +1,5 @@
 // @ts-check
-var today = new Date();
+var today;
 const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];
@@ -23,19 +23,10 @@ function loadHeavyElems() {
     tempDiscordWidget.height = "500"
     tempDiscordWidget.frameBorder = "0"
     discordWidget.appendChild(tempDiscordWidget);
-
-    // let tempCal = document.createElement("iframe");
-    // tempCal.src = "https://calendar.google.com/calendar/embed?height=500&amp;wkst=1&amp;bgcolor=%23202225&amp;ctz=America%2FLos_Angeles&amp;src=Y29kZW5AdWNzZC5lZHU&amp;src=dWNzZC5lZHVfc2E0MWNlNXU3ZGFiamp2aGg3azlmdXBwN3NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dWNzZC5lZHVfY2g4bG9yaW80bjBubXQ1YTZ0OXBnbDBqazBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=dWNzZC5lZHVfcDJyMHFwdjRhcXFyc2Q3aXR2OGFzaW1hbnNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dWNzZC5lZHVfMWo3dmx1cnQwbmMwZDhsZGVsdmQxZ2NqbjhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dWNzZC5lZHVfZ2FrMHJuMG84czFwdG1pZXV0ZHQzajR2cmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dWNzZC5lZHVfZnVwZnZodDRrY2NkbGY1cGVrMWRwMzdxNm9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dWNzZC5lZHVfZ2RwZjBmcTdoNzZnYTM3OGdkYmVxdjk2YXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dWNzZC5lZHVfdGJ0dHRoOG5hMDg1cG5ybHF2M3J2YXVnODRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=ZW5nLnVjc2QuZWR1XzlzYThzMHZvY2duMGptZG50amk2aGlpN2VnQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23039BE5&amp;color=%239E69AF&amp;color=%23616161&amp;color=%2333B679&amp;color=%23cc00c9&amp;color=%23F09300&amp;color=%230B8043&amp;color=%237CB342&amp;color=%23D50000&amp;color=%2300ccc6&amp;color=%23E4C441&amp;showTitle=0&amp;showNav=1&amp;showDate=0&amp;showPrint=0&amp;mode=AGENDA&amp;showTz=0&amp;showCalendars=1&amp;showTabs=0"
-    // tempCal.style = "border:solid 1px #777"
-    // tempCal.width = "320"
-    // tempCal.height = "500"
-    // tempCal.frameBorder = "0"
-    // tempCal.scrolling = "no"
-    // googleCalendar.appendChild(tempCal);
 }
 
 function runClock() {
-    let today = new Date();
+    today = new Date();
 
     let seconds = String(today.getSeconds());
     if (parseInt(seconds) < 10) {
@@ -84,8 +75,7 @@ function updateDate() {
     } else {
         dayModifier = "th";
     }
-    date = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + ' ' + day + dayModifier + ' ' + today.getFullYear();
-
+    date = dayNames[today.getDay()] + "<br/>" + monthNames[today.getMonth()] + ' ' + day + dayModifier + ' ' + today.getFullYear();
     clockDate.innerHTML = date;
 }
 
@@ -181,4 +171,35 @@ function setTheme(theme, theme_index) {
             root.style.setProperty(key, element);
         }
     }
+}
+
+function _capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function updateWeather(update) {
+    if (update) {
+        document.cookie = "last_weather_update=" + today.getTime() + ';'
+    }
+
+    let key = localStorage.getItem("weather_key");
+    let city_id = localStorage.getItem("city_id");
+    fetch(`https://api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=${key}`)
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            // Work with JSON data here
+            let city_name = data["name"];
+            // Find a way to have option for either Celcius or Fahrenheit conversion
+            let temp = Math.round(((data["main"]["temp"]-273.15)*1.8)+32) + "°F";
+            let weather_text = _capitalizeFirstLetter(data["weather"]["0"]["description"]);
+
+            weather_city.innerHTML = city_name;
+            weather_temp.innerHTML = temp;
+            weather_descrip.innerHTML = weather_text;
+        })
+        .catch((err) => {
+            // Do something for an error here
+        })
 }

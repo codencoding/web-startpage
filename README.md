@@ -9,8 +9,8 @@ TODO List:
 - Add way to add or remove launch icons.
 - Add way to rearrange launch icons.
     - https://www.w3schools.com/html/html5_draganddrop.asp
-- Weather fetcher
-    - https://openweathermap.org/current
+- ~Weather fetcher~
+    - ~https://openweathermap.org/current~
 - Find way to implement JSON normally, without having to cast it as a js file.
 - Allow for dynamic resizing of window for vertically oriented elements
     - Adjust text size, its container's width, and positioning to accommodate smaller window

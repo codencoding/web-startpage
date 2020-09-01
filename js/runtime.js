@@ -3,6 +3,11 @@ var clockTime = document.getElementById("clockTime");
 var iconElems = document.getElementsByClassName("iconRow");
 var launch_icons_div = document.getElementById("launchIcons");
 let themePicker = document.getElementById("themePicker");
+let weather_div = document.getElementById("weather").children;
+var weather_city = weather_div[0];
+var weather_temp = weather_div[1];
+var weather_descrip = weather_div[2];
+
 var searchBar = document.getElementById("searchBar");
 searchBar.value = '';
 
@@ -16,10 +21,22 @@ for (var i in cookie_raw) {
 if ("theme" in cookie) {
   setTheme(cookie["theme"], cookie["theme_index"]);
 }
+// Find a way to create a whole-screen blacked background prompt for this
+// to be more user-friendly
+if (!("city_id" in localStorage)) {
+  console.error("City id not set in localStorage. Enter \"localStorage.setItem(\"city_id\", \"your city id\");\" in console.")
+}
 
 updateDate();
 runClock();
 var myVar = setInterval(runClock, 1000);
+// If time since last weather update > 30 seconds, update weather
+if (today.getTime() - Number(cookie["last_weather_update"]) > (30*1000)) {
+  updateWeather(true);
+} else {
+  updateWeather(false);
+  console.info("Weather has been updated within the last 30 seconds, no need to re-update");
+}
 
 create_icons_table(launch_icons_div, icon_cfg["ROWS"], icon_cfg["COLUMNS"])
 
