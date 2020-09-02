@@ -15,20 +15,50 @@
     <script src="js/config.js"></script>
 </head>
 
-<!-- <body onload="changeTheme()"> -->
 <body>
+    <!-- The overlay -->
+    <div id="myNav" class="overlay">
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <form onsubmit="set_local_vars()">
+                <label>Weather API key</label>
+                <input type="password" name="weather_key" minlength="32" maxlength="32" required>
+
+                <label>City ID</label>
+                <input type="text" name="city_id" minlength="7" maxlength="7" required>
+
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+    <div id="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="hide_sidebar()">&times;</a>
+        <table class="sidebar-content">
+            <tbody>
+                <tr>
+                    <td>
+                        Theme:
+                    </td>
+                    <td>
+                        <select id="themePicker" onchange="changeTheme()">
+                            <option value="Dark">Dark</option>
+                            <option value="Light">Light</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <div id="dateHeader">
         <div id="weather">
-            <h2>Discovery Bay</h2>
+            <h2>City</h2>
             <h1>Temp</h1>
             <p>Large thunder storms outside, light rain</p>
         </div>
-        <select id="themePicker" onchange="changeTheme()">
-            <option value="Dark">Dark</option>
-            <option value="Light">Light</option>
-        </select>
+        <img src="include/imgs/settings.png" id="settings_btn" onclick="show_sidebar()"></img>
+        <h1 id="clockDate">Loading Date...</h1>
         <h1 id="clockTime">Loading Time...</h1>
-        <h2 id="clockDate">Loading Date...</h2>
         <input id="searchBar" type="text" placeholder="Link or Search..." autofocus>
     </div><!--id="dateHeader-->
     <div id="headerSpacer"></div>

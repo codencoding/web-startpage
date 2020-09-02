@@ -18,8 +18,7 @@
 }
 
 h1{
-    color: #f5f2e6;
-    font-size: 50px;
+    color: var(--text-color);
     margin: 0px;
 }
 
@@ -165,10 +164,7 @@ td > a > img {
 }
 
 #themePicker {
-    position: absolute;
-    right: 0px;
     width: 75px;
-    margin: 10px;
     border-radius: 5px;
     background-color: var(--main-bg-color);
     color: var(--text-color);
@@ -176,13 +172,10 @@ td > a > img {
 
 #weather {
     position: absolute;
-    left: 0px;
-    /* margin: 10px; */
-    margin-left: 20px;
-    /* font-size: 35px; */
+    right: 0px;
+    margin-right: 20px;
     color: var(--text-color);
-    /* float: left; */
-    text-align: left;
+    text-align: right;
     width: 450px;
 }
 
@@ -190,4 +183,91 @@ td > a > img {
     font-size: 20px;
     max-height: 133px;
     width: 450px;
+}
+
+.overlay {
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0); /*Will use this color if transparency not supported*/
+    background-color: rgba(0, 0, 0, 0.93);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    position: relative;
+    top: 25%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* Position the close button (top right corner) */
+.closebtn {
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+    right: 35px;
+    font-size: 60px;
+
+    /* padding: 8px; */
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; 
+    /* transition: 0.3s; */
+}
+
+.overlay label {
+    font-size: 36px;
+    color: #818181;
+}
+
+.overlay .overlay-content form {
+    display:grid;
+    justify-items: center;
+    grid-gap:5px;
+}
+
+.overlay .overlay-content form label {
+    text-align:right;
+}
+
+#settings_btn {
+    position: absolute;
+    left: 0px;
+    width: 40px;
+    margin: 10px;
+}
+
+#settings_btn:hover {
+    cursor: pointer;
+}
+
+#sidebar {
+    visibility: hidden;
+    height: 100%;
+    width: 30%;
+    background-color: var(--main-bg-color);
+    border-right: var(--secondary-color) 2px solid;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+
+.sidebar-content {
+    position: relative;
+    width: 100%; /* 100% width */
+    color: var(--text-color);
+    padding: 30px;
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+.sidebar-content td {
+    height: 30px;
 }

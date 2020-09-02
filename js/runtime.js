@@ -7,6 +7,11 @@ let weather_div = document.getElementById("weather").children;
 var weather_city = weather_div[0];
 var weather_temp = weather_div[1];
 var weather_descrip = weather_div[2];
+var config_overlay = document.getElementsByClassName("overlay")[0];
+var weather_key_inpt = config_overlay.getElementsByTagName("input")[0];
+var city_id_inpt = config_overlay.getElementsByTagName("input")[1];
+var sidebar_overlay = document.getElementById("sidebar");
+
 
 var searchBar = document.getElementById("searchBar");
 searchBar.value = '';
@@ -23,8 +28,12 @@ if ("theme" in cookie) {
 }
 // Find a way to create a whole-screen blacked background prompt for this
 // to be more user-friendly
-if (!("city_id" in localStorage)) {
-  console.error("City id not set in localStorage. Enter \"localStorage.setItem(\"city_id\", \"your city id\");\" in console.")
+// if (!("city_id" in localStorage)) {
+//   console.error("City id not set in localStorage. Enter \"localStorage.setItem(\"city_id\", \"your city id\");\" in console.")
+// }
+
+if (!("city_id" in localStorage) || !("city_id" in localStorage)) {
+  show_overlay();
 }
 
 updateDate();

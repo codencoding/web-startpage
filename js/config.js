@@ -75,7 +75,8 @@ function updateDate() {
     } else {
         dayModifier = "th";
     }
-    date = dayNames[today.getDay()] + "<br/>" + monthNames[today.getMonth()] + ' ' + day + dayModifier + ' ' + today.getFullYear();
+    // date = dayNames[today.getDay()] + "<br/>" + monthNames[today.getMonth()] + ' ' + day + dayModifier + ' ' + today.getFullYear();
+    date = dayNames[today.getDay()] + ", " + monthNames[today.getMonth()] + ' ' + day + dayModifier + ' ' + today.getFullYear();
     clockDate.innerHTML = date;
 }
 
@@ -202,4 +203,32 @@ function updateWeather(update) {
         .catch((err) => {
             // Do something for an error here
         })
+}
+
+function show_overlay() {
+    config_overlay.style.width = "100%";
+}
+
+function hide_overlay() {
+    config_overlay.style.width = "0%";
+}
+
+function show_sidebar() {
+    // sidebar_overlay.style.width = "30%";
+    sidebar_overlay.style.visibility = "visible"
+}
+
+function hide_sidebar() {
+    // sidebar_overlay.style.width = "0%";
+    sidebar_overlay.style.visibility = "hidden"
+}
+
+function set_local_vars() {
+    let weather_key = weather_key_inpt.value;
+    let city_id = city_id_inpt.value;
+
+    localStorage.setItem("weather_key", weather_key);
+    localStorage.setItem("city_id", city_id);
+    hide_overlay();
+    updateWeather(true);
 }
