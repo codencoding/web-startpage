@@ -14,3 +14,4 @@ TODO List:
 - Find way to implement JSON normally, without having to cast it as a js file.
 - Allow for dynamic resizing of window for vertically oriented elements
     - Adjust text size, its container's width, and positioning to accommodate smaller window
+- Have a setting to switch out discord widget with an image instead. It'd be good to have an option to hide my personal stuff.
