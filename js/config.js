@@ -15,7 +15,7 @@ var theme_cfg = cfg["THEMES"]
 
 function loadHeavyElems() {
     let discordWidget = document.getElementById("discordWidget");
-    let googleCalendar = document.getElementById("googleCalendar");
+    // let googleCalendar = document.getElementById("googleCalendar");
 
     let tempDiscordWidget = document.createElement("iframe");
     tempDiscordWidget.src = "https://discordapp.com/widget?id=106615501169377280&theme=dark"
@@ -151,11 +151,16 @@ function duckduckgoSearch(searchInput) {
     window.location.href = "https://duckduckgo.com/?q=" + searchInput + "&ia=web";
 }
 
+function ecosiaSearch(searchInput) {
+    window.location.href = "https://ecosia.org/search?q=" + searchInput;
+}
+
 function changeTheme() {
     let selected_index = themePicker.options.selectedIndex;
     let selected_theme = themePicker[selected_index].value.toUpperCase();
     
     setTheme(selected_theme, selected_index);
+    update_theme_var_placeholders();
 }
 
 function setTheme(theme, theme_index) {
@@ -195,14 +200,21 @@ function updateWeather(update) {
             // Find a way to have option for either Celcius or Fahrenheit conversion
             let temp = Math.round(((data["main"]["temp"]-273.15)*1.8)+32) + "°F";
             let weather_text = _capitalizeFirstLetter(data["weather"]["0"]["description"]);
-
+            
             weather_city.innerHTML = city_name;
             weather_temp.innerHTML = temp;
             weather_descrip.innerHTML = weather_text;
+            // Set attribute for settings sidebar information
+            cityName.innerHTML=city_name;
+
+            localStorage.setItem("city_name", city_name);
         })
         .catch((err) => {
             // Do something for an error here
         })
+
+    // Set attribute for settings sidebar information
+    cityIdInput.setAttribute("placeholder", localStorage.getItem("city_id"));
 }
 
 function show_overlay() {
@@ -223,12 +235,50 @@ function hide_sidebar() {
     sidebar_overlay.style.visibility = "hidden"
 }
 
-function set_local_vars() {
-    let weather_key = weather_key_inpt.value;
-    let city_id = city_id_inpt.value;
-
-    localStorage.setItem("weather_key", weather_key);
-    localStorage.setItem("city_id", city_id);
-    hide_overlay();
+function set_local_vars(weather_key='', city_id='') {
+    // let weather_key = weather_key_inpt.value;
+    // let city_id = city_id_inpt.value;
+    if(weather_key != '') {
+        localStorage.setItem("weather_key", weather_key);
+    }
+    if(city_id != '') {
+        localStorage.setItem("city_id", city_id);
+    }
     updateWeather(true);
+}
+
+function show_new_theme() {
+    for (const key in new_theme_elems) {
+        if (new_theme_elems.hasOwnProperty(key)) {
+            const element = new_theme_elems[key];
+            element.hidden = false
+        }
+    }
+}
+
+function hide_new_theme() {
+    for (const key in new_theme_elems) {
+        if (new_theme_elems.hasOwnProperty(key)) {
+            const element = new_theme_elems[key];
+            element.hidden = true
+        }
+    }
+}
+
+function update_theme_var_placeholders() {
+    for (const key in theme_color_rows) {
+        if (theme_color_rows.hasOwnProperty(key)) {
+            const element = theme_color_rows[key].children;
+            let var_name = element[0].innerHTML.trim().slice(0, -1);
+            let input_elem = element[1].children[0];
+
+            let var_value = getComputedStyle(element[0]).getPropertyValue(var_name);
+
+            input_elem.setAttribute("placeholder", var_value);
+        }
+    }
+}
+
+function upload_new_theme() {
+    // TODO
 }
