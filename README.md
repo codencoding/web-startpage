@@ -6,12 +6,13 @@ TODO List:
 - Add theme picker.
     - ~Use cookies to implement background var names.~
     - Add sidebar to adjust theme colors on the fly.
+        - Add functionality
 - Add way to add or remove launch icons.
 - Add way to rearrange launch icons.
     - https://www.w3schools.com/html/html5_draganddrop.asp
 - ~Weather fetcher~
     - ~https://openweathermap.org/current~
-    - Add city id changer option to settings sidebar
+    - ~Add city id changer option to settings sidebar~
     - Keep record of set cities in localStorage
 - Find way to implement JSON normally, without having to cast it as a js file.
 - Allow for dynamic resizing of window for vertically oriented elements
